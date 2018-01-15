@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Compte {
 
-
+    private int Id;
     private int num;
     private double montant;
     private ArrayList<Operation> lesOperations;
@@ -18,6 +18,9 @@ public class Compte {
         this.num = num;
         this.montant = montant;
         this.lesOperations = new ArrayList<>();
+    }
+
+    public Compte() {
     }
 
     public ArrayList<Operation> getLesOperations() {
@@ -44,6 +47,10 @@ public class Compte {
     public void setMontant(double montant) {
         this.montant = montant;
     }
+
+    public int getId() {return Id;}
+
+    public void setId(int Id) {this.Id = Id;}
 
     public void operate(Operation operation){
         montant += operation.getMontant();
