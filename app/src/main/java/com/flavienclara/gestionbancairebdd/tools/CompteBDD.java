@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.flavienclara.gestionbancairebdd.Models.CompteADO;
+import com.flavienclara.gestionbancairebdd.classes.Client;
 import com.flavienclara.gestionbancairebdd.classes.Compte;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class CompteBDD {
     private static final int NUM_COL_NUMERO = 1;
     private static final String COL_MONTANT= "MONTANT";
     private static final int NUM_COL_MONTANT = 2;
+    private static final String COL_FK_ID_CLIENT = "FK_ID_CLIENT";
+    private static final int NUM_COL_FK_ID_CLIENT = 3;
     private SQLiteDatabase bdd;
     private CompteADO comptes;
 
@@ -31,25 +34,30 @@ public class CompteBDD {
         comptes = new CompteADO(context, NOM_BDD, null, VERSION);
     }
 
+    //connexion pour ecrire
     public void openForWrite() {
         bdd = comptes.getWritableDatabase();
     }
-    public void openForRead() {
-
-        bdd = comptes.getReadableDatabase();
-    }
+    //connexion pour lire
+    public void openForRead() {bdd = comptes.getReadableDatabase();}
+    //pour fermer
     public void close() {
         bdd.close();
     }
     public SQLiteDatabase getBdd() {
         return bdd;
     }
+
+    // pour inserer dans compte
     public long insertCompte(Compte comptes) {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
         content.put(COL_MONTANT, comptes.getMontant());
+        content.put(COL_FK_ID_CLIENT, comptes.getFk_id_client());
         return bdd.insert(TABLE_COMPTE, null, content);
     }
+
+    //pour modifier dans compte
     public int updateCompte(int id, Compte comptes) {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
@@ -61,7 +69,7 @@ public class CompteBDD {
     }
     public Compte getCompte(String num) {
         Cursor c = bdd.query(TABLE_COMPTE, new String[] {
-                        COL_ID, COL_NUMERO,COL_MONTANT }, COL_NUMERO + " LIKE \"" + num + "\"", null, null, null, COL_NUMERO);
+                        COL_ID, COL_NUMERO,COL_MONTANT, COL_FK_ID_CLIENT }, COL_NUMERO + " LIKE \"" + num + "\"", null, null, null, COL_NUMERO);
         return cursorToCompte(c);
     }
     public Compte cursorToCompte(Cursor c) {
@@ -77,6 +85,7 @@ public class CompteBDD {
         c.close();
         return cpt;
     }
+    //pour lister les comptes
     public ArrayList<Compte> getAllComptes() {
         Cursor c = bdd.query(TABLE_COMPTE, new String[] {
                 COL_ID, COL_NUMERO,COL_MONTANT }, null, null, null, null, COL_NUMERO);
@@ -95,4 +104,14 @@ public class CompteBDD {
         c.close();
         return comptesList;
     }
+
+    //insert quand id_client = fk_id_client
+    public long insertCompteClient(Compte comptes, Client c) {
+        ContentValues content = new ContentValues();
+        content.put(COL_NUMERO, comptes.getNum());
+        content.put(COL_MONTANT, comptes.getMontant());
+        content.put(COL_FK_ID_CLIENT, comptes.getFk_id_client());
+        return bdd.insert(TABLE_COMPTE, null, content);
+    }
+    //INSERT INTO Compte ..... where fk_id_client = Client.id;
 }

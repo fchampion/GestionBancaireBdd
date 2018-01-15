@@ -11,6 +11,7 @@ public class Compte {
     private int Id;
     private int num;
     private double montant;
+    private int fk_id_client;
     private ArrayList<Operation> lesOperations;
 
 
@@ -51,6 +52,10 @@ public class Compte {
     public int getId() {return Id;}
 
     public void setId(int Id) {this.Id = Id;}
+
+    public int getFk_id_client() {return fk_id_client;}
+
+    public void setFk_id_client(int fk_id_client) {this.fk_id_client = fk_id_client;}
 
     public void operate(Operation operation){
         montant += operation.getMontant();
