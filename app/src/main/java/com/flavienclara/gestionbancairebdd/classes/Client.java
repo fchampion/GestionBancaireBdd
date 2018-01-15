@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Client {
+    private int id;
     private String nom;
     private String prenom;
     private String login;
@@ -32,6 +33,10 @@ public class Client {
 
     public Client() {
     }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getNom() {
         return nom;
