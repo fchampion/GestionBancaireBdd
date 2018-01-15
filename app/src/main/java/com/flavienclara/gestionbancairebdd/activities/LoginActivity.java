@@ -103,8 +103,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-            clientBdd.insertClient(c1);
-            clientBdd.insertClient(c2);
+            //clientBdd.insertClient(c1);
+            //clientBdd.insertClient(c2);
             lesClients = clientBdd.getAllClients();
             clientBdd.close();
             //lesClients.add(c1);
@@ -128,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                                 setClient(c);
                                 Intent i = new Intent(LoginActivity.this, CompteActivity.class);
                                 startActivity(i);
+                                return;
                             } else {
                                 error.setText("Login ou mot de passe incorrect.");
                             }

@@ -96,7 +96,7 @@ public class ClientBDD {
 
     public ArrayList<Client> getAllClients() {
         Cursor c = bdd.query(TABLE_CLIENT, new String[]
-                {COL_ID,COL_NOM, COL_PRENOM, COL_LOGIN, COL_MDP  }, null, null, null, null, COL_NOM);
+                {COL_ID,COL_NOM,COL_PRENOM,COL_LOGIN,COL_MDP}, null, null, null, null, COL_NOM);
         if (c.getCount() == 0) {
             c.close(); return null;
         }
@@ -107,7 +107,7 @@ public class ClientBDD {
             client.setNom(c.getString(NUM_COL_NOM ));
             client.setPrenom(c.getString(NUM_COL_PRENOM ));
             client.setLogin(c.getString(NUM_COL_LOGIN ));
-            client.setPrenom(c.getString(NUM_COL_MDP ));
+            client.setMdp(c.getString(NUM_COL_MDP ));
             clientList.add(client);
         }
         c.close();
