@@ -89,12 +89,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-            //clientBdd.insertClient(c1);
-            //clientBdd.insertClient(c2);
+            clientBdd.insertClient(c1);
+            clientBdd.insertClient(c2);
             lesClients = clientBdd.getAllClients();
             clientBdd.close();
-            //lesClients.add(c1);
-            //lesClients.add(c2);
 
 
             final EditText login = (EditText) findViewById(R.id.input_login);
