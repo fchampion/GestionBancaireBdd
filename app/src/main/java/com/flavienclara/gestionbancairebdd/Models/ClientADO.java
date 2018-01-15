@@ -11,14 +11,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ClientADO extends SQLiteOpenHelper {
 
-    private static final String TABLE_CLIENT="table_client";
-    private static final String COL_NOM = "nom";
-    private static final String COL_PRENOM = "prenom";
-    private static final String COL_LOGIN = "login";
-    private static final String COL_MDP = "mdp";
+    private static final String TABLE_CLIENT="TABLE_CLIENT";
+    private static final String COL_ID = "ID";
+    private static final String COL_NOM = "NOM";
+    private static final String COL_PRENOM = "PRENOM";
+    private static final String COL_LOGIN = "LOGIN";
+    private static final String COL_MDP = "MDP";
 
 
-    private  final String CREATE_BDD = "CREATE TABLE " + TABLE_CLIENT + " (" + COL_NOM + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_PRENOM + " TEXT NOT NULL, " + COL_LOGIN + " TEXT NOT NULL, " + COL_MDP + " TEXT NOT NULL);";
+    private  final String CREATE_BDD = "CREATE TABLE " + TABLE_CLIENT + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM + " TEXT NOT NULL, " +COL_PRENOM + " TEXT NOT NULL, " + COL_LOGIN + " TEXT NOT NULL, " + COL_MDP + " TEXT NOT NULL);";
 
     public ClientADO(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
 

@@ -18,6 +18,7 @@ import com.flavienclara.gestionbancairebdd.R;
 import com.flavienclara.gestionbancairebdd.classes.Client;
 import com.flavienclara.gestionbancairebdd.classes.Compte;
 import com.flavienclara.gestionbancairebdd.classes.Operation;
+import com.flavienclara.gestionbancairebdd.tools.ClientBDD;
 
 public class LoginActivity extends AppCompatActivity {
     public ArrayList<Client> lesClients;
@@ -47,9 +48,13 @@ public class LoginActivity extends AppCompatActivity {
                     getSupportActionBar().setDisplayShowTitleEnabled(false);
                 }
             }
-            lesClients = new ArrayList<>();
+
+            ClientBDD clientBdd = new ClientBDD(this);
+            clientBdd.openForWrite();
             Client c1 = new Client("Dupond", "Dupont", "d", "d");
             Client c2 = new Client("Laela", "Lola", "llaela", "ll39");
+
+
 
             Operation op1 = new Operation("telephone", -614.00);
             Operation op2 = new Operation("bar", -17.80);
@@ -81,8 +86,17 @@ public class LoginActivity extends AppCompatActivity {
             c1.getLesComptes().add(cpte2);
             c2.getLesComptes().add(cpte3);
             c2.getLesComptes().add(cpte4);
-            lesClients.add(c1);
-            lesClients.add(c2);
+
+
+
+            clientBdd.insertClient(c1);
+            clientBdd.insertClient(c2);
+            lesClients = clientBdd.getAllClients();
+            clientBdd.close();
+            //lesClients.add(c1);
+            //lesClients.add(c2);
+
+
             final EditText login = (EditText) findViewById(R.id.input_login);
             final EditText password = (EditText) findViewById(R.id.input_password);
             final Button btnConnexion = (Button) findViewById(R.id.btn_ajouter);
