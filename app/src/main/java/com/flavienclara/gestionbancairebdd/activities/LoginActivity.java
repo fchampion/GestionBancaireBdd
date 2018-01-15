@@ -19,9 +19,11 @@ import com.flavienclara.gestionbancairebdd.classes.Client;
 import com.flavienclara.gestionbancairebdd.classes.Compte;
 import com.flavienclara.gestionbancairebdd.classes.Operation;
 import com.flavienclara.gestionbancairebdd.tools.ClientBDD;
+import com.flavienclara.gestionbancairebdd.tools.CompteBDD;
 
 public class LoginActivity extends AppCompatActivity {
     public ArrayList<Client> lesClients;
+    public ArrayList<Compte> lesComptes;
     public static Client connected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,9 @@ public class LoginActivity extends AppCompatActivity {
             Operation op7 = new Operation("edf", -84.00);
             Operation op8 = new Operation("eau", -9.07);
 
+
+            CompteBDD compteBdd = new CompteBDD(this);
+            compteBdd.openForWrite();
             Compte cpte1 = new Compte(145, 1010.58);
             Compte cpte2 = new Compte(146, 489.04);
             Compte cpte3 = new Compte(147, 10.58);
@@ -82,10 +87,19 @@ public class LoginActivity extends AppCompatActivity {
             cpte4.getLesOperations().add(op6);
             cpte4.getLesOperations().add(op7);
 
-            c1.getLesComptes().add(cpte1);
-            c1.getLesComptes().add(cpte2);
-            c2.getLesComptes().add(cpte3);
-            c2.getLesComptes().add(cpte4);
+
+
+            //  A     R E F A I R E
+            compteBdd.insertCompte(cpte1);
+            compteBdd.insertCompte(cpte2);
+            compteBdd.insertCompte(cpte3);
+            compteBdd.insertCompte(cpte4);
+            lesComptes = compteBdd.getAllComptes();
+            compteBdd.close();
+            //c1.getLesComptes().add(cpte1);
+            //c1.getLesComptes().add(cpte2);
+            //c2.getLesComptes().add(cpte3);
+            //c2.getLesComptes().add(cpte4);
 
 
 
