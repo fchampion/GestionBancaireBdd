@@ -89,7 +89,7 @@ public class CompteBDD {
     //pour lister les comptes
     public ArrayList<Compte> getAllComptes() {
         Cursor c = bdd.query(TABLE_COMPTE, new String[] {
-                COL_ID_COMPTE, COL_NUMERO,COL_MONTANT_COMPTE }, null, null, null, null, COL_NUMERO);
+                COL_ID_COMPTE, COL_NUMERO,COL_MONTANT_COMPTE,COL_FK_ID_CLIENT }, null, null, null, null, COL_NUMERO);
         if (c.getCount() == 0) {
             c.close();
             return null;
@@ -100,6 +100,7 @@ public class CompteBDD {
             cpt.setId(c.getInt(NUM_COL_ID_COMPTE));
             cpt.setNum(c.getInt(NUM_COL_NUMERO));
             cpt.setMontant_compte(c.getDouble(NUM_COL_MONTANT_COMPTE));
+            cpt.setFk_id_client(c.getInt(NUM_COL_FK_ID_CLIENT));
             comptesList.add(cpt);
         }
         c.close();

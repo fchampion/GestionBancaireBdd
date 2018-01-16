@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
             compteBdd.insertCompte(cpte3);
             compteBdd.insertCompte(cpte4);
 
-            //lesComptes = compteBdd.getAllComptes();
+            lesComptes = compteBdd.getAllComptes();
             compteBdd.close();
 
             //c1.getLesComptes().add(cpte1);
