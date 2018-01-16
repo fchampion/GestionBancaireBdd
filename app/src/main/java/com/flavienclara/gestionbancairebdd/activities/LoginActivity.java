@@ -57,10 +57,10 @@ public class LoginActivity extends AppCompatActivity {
             Client c2 = new Client("Laela", "Lola", "llaela", "ll39");
 
 
-            Compte cpte1 = new Compte(145, 1010.58);
-            Compte cpte2 = new Compte(146, 489.04);
-            Compte cpte3 = new Compte(147, 10.58);
-            Compte cpte4 = new Compte(148, 48.04);
+            Compte cpte1 = new Compte(145, 1010.58,1);
+            Compte cpte2 = new Compte(146, 489.04,1);
+            Compte cpte3 = new Compte(147, 10.58,2);
+            Compte cpte4 = new Compte(148, 48.04,2);
 
 
             Operation op1 = new Operation("telephone", -614.00);
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-            //  A     R E F A I R E
+            //GOOD
             compteBdd.insertCompte(cpte1);
             compteBdd.insertCompte(cpte2);
             compteBdd.insertCompte(cpte3);

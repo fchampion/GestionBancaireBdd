@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class CompteBDD {
     private static final int VERSION = 1;
-    private static final String NOM_BDD = "compte.db";
-    private static final String TABLE_COMPTE = "table_compte";
+    private static final String NOM_BDD = "Banque.db";
+    private static final String TABLE_COMPTE = "TABLE_COMPTE";
     private static final String COL_ID_COMPTE = "ID_COMPTE";
     private static final int NUM_COL_ID_COMPTE = 0;
     private static final String COL_NUMERO = "NUMERO";
@@ -62,6 +62,7 @@ public class CompteBDD {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
         content.put(COL_MONTANT_COMPTE, comptes.getMontant_compte());
+        content.put(COL_FK_ID_CLIENT, comptes.getFk_id_client());
         return bdd.update(TABLE_COMPTE, content, COL_ID_COMPTE + " = " + id, null);
     }
     public int removeCompte(String name) {

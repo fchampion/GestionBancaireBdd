@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class OperationBDD {
     private static final int VERSION = 1;
-    private static final String NOM_BDD = "operation.db";
+    private static final String NOM_BDD = "Banque.db";
     private static final String TABLE_OPERATION = "TABLE_OPERATION";
     private static final String COL_ID_OPERATION = "ID_OPERATION";
     private static final int NUM_COL_ID_OPERATION = 0;

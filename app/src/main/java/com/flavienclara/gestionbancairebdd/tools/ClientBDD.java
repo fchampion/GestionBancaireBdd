@@ -17,7 +17,7 @@ import com.flavienclara.gestionbancairebdd.Models.ClientADO;
 public class ClientBDD {
 
     private static final int VERSION = 1;
-    private static final String NOM_BDD = "client.db";
+    private static final String NOM_BDD = "Banque.db";
 
     private static final String TABLE_CLIENT="TABLE_CLIENT";
     private static final int NUM_COL_ID_CLIENT  = 0;

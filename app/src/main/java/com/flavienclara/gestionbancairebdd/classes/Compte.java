@@ -15,10 +15,12 @@ public class Compte {
     private ArrayList<Operation> lesOperations;
 
 
-    public Compte(int num, double montant_compte) {
+    public Compte(int num, double montant_compte, int fk_id_client) {
         this.num = num;
         this.montant_compte = montant_compte;
+        this.fk_id_client = fk_id_client;
         this.lesOperations = new ArrayList<>();
+
     }
 
     public Compte() {
