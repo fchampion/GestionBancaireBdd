@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             Compte cpte3 = new Compte(147, 10.58);
             Compte cpte4 = new Compte(148, 48.04);
 
-            cpte1.getLesOperations().add(op1);
+            /*cpte1.getLesOperations().add(op1);
             cpte1.getLesOperations().add(op3);
 
             cpte2.getLesOperations().add(op5);
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             cpte3.getLesOperations().add(op4);
 
             cpte4.getLesOperations().add(op6);
-            cpte4.getLesOperations().add(op7);
+            cpte4.getLesOperations().add(op7);*/
 
 
 

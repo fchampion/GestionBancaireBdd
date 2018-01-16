@@ -31,7 +31,7 @@ public class CompteActivity extends ActivityWithToolbar {
         } else {
             String[] arrayCompte = new String[LoginActivity.connected.getLesComptes().size()];
             for (int i = 0; i < LoginActivity.connected.getLesComptes().size(); i++) {
-                arrayCompte[i] = "Détails compte : " + String.valueOf(LoginActivity.connected.getLesComptes().get(i).getNum()) + "      Solde : " + String.valueOf(LoginActivity.connected.getLesComptes().get(i).getMontant());
+                arrayCompte[i] = "Détails compte : " + String.valueOf(LoginActivity.connected.getLesComptes().get(i).getNum()) + "      Solde : " + String.valueOf(LoginActivity.connected.getLesComptes().get(i).getMontant_compte());
             }
             ListView listComptes = (ListView) findViewById(R.id.list_comptes);
             ArrayAdapter adapter = new ArrayAdapter(CompteActivity.this, android.R.layout.simple_list_item_1, arrayCompte);

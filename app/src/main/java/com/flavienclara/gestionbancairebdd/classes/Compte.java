@@ -15,9 +15,9 @@ public class Compte {
     private ArrayList<Operation> lesOperations;
 
 
-    public Compte(int num, double montant) {
+    public Compte(int num, double montant_compte) {
         this.num = num;
-        this.montant_compte = montant;
+        this.montant_compte = montant_compte;
         this.lesOperations = new ArrayList<>();
     }
 
@@ -54,12 +54,12 @@ public class Compte {
     public void setFk_id_client(int fk_id_client) {this.fk_id_client = fk_id_client;}
 
     public void operate(Operation operation){
-        montant_compte += operation.getMontant();
+        montant_compte += operation.getMontant_operation();
         lesOperations.add(operation);
     }
 
     public void desoperate(Operation operation){
-        montant_compte -= operation.getMontant();
+        montant_compte -= operation.getMontant_operation();
         lesOperations.remove(operation);
     }
 }

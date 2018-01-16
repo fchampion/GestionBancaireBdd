@@ -21,7 +21,7 @@ public class CompteADO extends SQLiteOpenHelper {
     private static final String CREATE_BDD = "CREATE TABLE " + TABLE_COMPTE + " ("
             + COL_ID_COMPTE + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NUMERO + " TEXT NOT NULL, "
-            + COL_MONTANT_COMPTE + "TEXT NOT NULL, "
+            + COL_MONTANT_COMPTE + " TEXT NOT NULL, "
             + "FOREIGN KEY (" + COL_FK_ID_CLIENT + ") REFERENCES " + TABLE_CLIENT + "(ID_CLIENT)"+");";
 
     public CompteADO(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

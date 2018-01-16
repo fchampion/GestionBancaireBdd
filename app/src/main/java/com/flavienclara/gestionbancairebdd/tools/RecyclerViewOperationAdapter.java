@@ -41,7 +41,7 @@ public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         public void onClick(View view) {
             Operation o = new Operation();
             o.setLibelle(vh.libelleOperation.getText().toString());
-            o.setMontant(Double.parseDouble(vh.montantOperation.getText().toString()));
+            o.setMontant_operation(Double.parseDouble(vh.montantOperation.getText().toString()));
             OperationActivity.operation = o;
             Intent i = new Intent(parent.getContext(), AjoutOperationActivity.class);
             parent.getContext().startActivity(i);
@@ -55,7 +55,7 @@ public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
 @Override
 public void onBindViewHolder(RecyclerViewOperationAdapter.ViewHolder holder, int position) {
     holder.libelleOperation.setText(data.get(position).getLibelle());
-    holder.montantOperation.setText(data.get(position).getMontant().toString());
+    holder.montantOperation.setText(data.get(position).getMontant_operation().toString());
 
 }
 //Méthode à surcharger : retourne la taille de la liste

@@ -93,7 +93,7 @@ public class AjoutOperationActivity extends AppCompatActivity{
         if(OperationActivity.operation != null)
         {
             inputLibelleOperation.setText(OperationActivity.operation.getLibelle());
-            inputMontantOperation.setText(OperationActivity.operation.getMontant().toString());
+            inputMontantOperation.setText(OperationActivity.operation.getMontant_operation().toString());
             btnSupprimerOperation.setVisibility(View.VISIBLE);
             btnSupprimerOperation.setOnClickListener(new View.OnClickListener() {
 
