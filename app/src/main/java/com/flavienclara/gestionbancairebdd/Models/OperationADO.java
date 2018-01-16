@@ -22,6 +22,7 @@ public class OperationADO extends SQLiteOpenHelper {
             + COL_ID_OPERATION+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_LIBELLE + " TEXT NOT NULL, "
             + COL_MONTANT_OPERATION+ " TEXT NOT NULL, "
+            + COL_FK_ID_COMPTE + " integer,"
             + "FOREIGN KEY (" + COL_FK_ID_COMPTE + ") REFERENCES " + TABLE_COMPTE + "(ID_COMPTE)"+");";
 
     public OperationADO(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

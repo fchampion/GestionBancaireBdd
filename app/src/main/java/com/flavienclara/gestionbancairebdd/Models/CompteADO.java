@@ -22,6 +22,7 @@ public class CompteADO extends SQLiteOpenHelper {
             + COL_ID_COMPTE + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COL_NUMERO + " TEXT NOT NULL, "
             + COL_MONTANT_COMPTE + " TEXT NOT NULL, "
+            + COL_FK_ID_CLIENT + " integer,"
             + "FOREIGN KEY (" + COL_FK_ID_CLIENT + ") REFERENCES " + TABLE_CLIENT + "(ID_CLIENT)"+");";
 
     public CompteADO(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
