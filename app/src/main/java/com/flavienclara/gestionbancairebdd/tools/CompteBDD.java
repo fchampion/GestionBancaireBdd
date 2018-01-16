@@ -19,12 +19,12 @@ public class CompteBDD {
     private static final int VERSION = 1;
     private static final String NOM_BDD = "compte.db";
     private static final String TABLE_COMPTE = "table_compte";
-    private static final String COL_ID = "ID";
-    private static final int NUM_COL_ID = 0;
+    private static final String COL_ID_COMPTE = "ID_COMPTE";
+    private static final int NUM_COL_ID_COMPTE = 0;
     private static final String COL_NUMERO = "NUMERO";
     private static final int NUM_COL_NUMERO = 1;
-    private static final String COL_MONTANT= "MONTANT";
-    private static final int NUM_COL_MONTANT = 2;
+    private static final String COL_MONTANT_COMPTE = "MONTANT_COMPTE";
+    private static final int NUM_COL_MONTANT_COMPTE = 2;
     private static final String COL_FK_ID_CLIENT = "FK_ID_CLIENT";
     private static final int NUM_COL_FK_ID_CLIENT = 3;
     private SQLiteDatabase bdd;
@@ -52,7 +52,7 @@ public class CompteBDD {
     public long insertCompte(Compte comptes) {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
-        content.put(COL_MONTANT, comptes.getMontant());
+        content.put(COL_MONTANT_COMPTE, comptes.getMontant_compte());
         content.put(COL_FK_ID_CLIENT, comptes.getFk_id_client());
         return bdd.insert(TABLE_COMPTE, null, content);
     }
@@ -61,15 +61,15 @@ public class CompteBDD {
     public int updateCompte(int id, Compte comptes) {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
-        content.put(COL_MONTANT, comptes.getMontant());
-        return bdd.update(TABLE_COMPTE, content, COL_ID + " = " + id, null);
+        content.put(COL_MONTANT_COMPTE, comptes.getMontant_compte());
+        return bdd.update(TABLE_COMPTE, content, COL_ID_COMPTE + " = " + id, null);
     }
     public int removeCompte(String name) {
         return bdd.delete(TABLE_COMPTE, COL_NUMERO + " = " + name, null);
     }
     public Compte getCompte(String num) {
         Cursor c = bdd.query(TABLE_COMPTE, new String[] {
-                        COL_ID, COL_NUMERO,COL_MONTANT, COL_FK_ID_CLIENT }, COL_NUMERO + " LIKE \"" + num + "\"", null, null, null, COL_NUMERO);
+                        COL_ID_COMPTE, COL_NUMERO,COL_MONTANT_COMPTE, COL_FK_ID_CLIENT }, COL_NUMERO + " LIKE \"" + num + "\"", null, null, null, COL_NUMERO);
         return cursorToCompte(c);
     }
     public Compte cursorToCompte(Cursor c) {
@@ -79,16 +79,16 @@ public class CompteBDD {
             return null;
         }
         Compte cpt = new Compte();
-        cpt.setId(c.getInt(NUM_COL_ID));
+        cpt.setId(c.getInt(NUM_COL_ID_COMPTE));
         cpt.setNum(c.getInt(NUM_COL_NUMERO));
-        cpt.setMontant(c.getDouble(NUM_COL_MONTANT));
+        cpt.setMontant_compte(c.getDouble(NUM_COL_MONTANT_COMPTE));
         c.close();
         return cpt;
     }
     //pour lister les comptes
     public ArrayList<Compte> getAllComptes() {
         Cursor c = bdd.query(TABLE_COMPTE, new String[] {
-                COL_ID, COL_NUMERO,COL_MONTANT }, null, null, null, null, COL_NUMERO);
+                COL_ID_COMPTE, COL_NUMERO,COL_MONTANT_COMPTE }, null, null, null, null, COL_NUMERO);
         if (c.getCount() == 0) {
             c.close();
             return null;
@@ -96,9 +96,9 @@ public class CompteBDD {
         ArrayList<Compte> comptesList = new ArrayList<Compte> ();
         while (c.moveToNext()) {
             Compte cpt = new Compte();
-            cpt.setId(c.getInt(NUM_COL_ID));
+            cpt.setId(c.getInt(NUM_COL_ID_COMPTE));
             cpt.setNum(c.getInt(NUM_COL_NUMERO));
-            cpt.setMontant(c.getDouble(NUM_COL_MONTANT));
+            cpt.setMontant_compte(c.getDouble(NUM_COL_MONTANT_COMPTE));
             comptesList.add(cpt);
         }
         c.close();
@@ -109,7 +109,7 @@ public class CompteBDD {
     public long insertCompteClient(Compte comptes, Client c) {
         ContentValues content = new ContentValues();
         content.put(COL_NUMERO, comptes.getNum());
-        content.put(COL_MONTANT, comptes.getMontant());
+        content.put(COL_MONTANT_COMPTE, comptes.getMontant_compte());
         content.put(COL_FK_ID_CLIENT, comptes.getFk_id_client());
         return bdd.insert(TABLE_COMPTE, null, content);
     }

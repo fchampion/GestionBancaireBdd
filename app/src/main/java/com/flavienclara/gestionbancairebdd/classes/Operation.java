@@ -5,16 +5,18 @@ package com.flavienclara.gestionbancairebdd.classes;
  */
 
 public class Operation {
+    private int id;
     private String libelle;
-    private Double montant;
+    private Double montant_operation;
+    private int fk_id_compte;
 
     public Operation(){
 
     }
 
-    public Operation(String libelle, Double montant) {
+    public Operation(String libelle, Double montant_operation) {
         this.libelle = libelle;
-        this.montant = montant;
+        this.montant_operation = montant_operation;
     }
 
     public String getLibelle() {
@@ -25,11 +27,15 @@ public class Operation {
         this.libelle = libelle;
     }
 
-    public Double getMontant() {
-        return montant;
-    }
+    public int getId() {return id;}
 
-    public void setMontant(Double montant) {
-        this.montant = montant;
-    }
+    public void setId(int id) {this.id = id;}
+
+    public Double getMontant_operation() {return montant_operation;}
+
+    public void setMontant_operation(Double montant_operation) {this.montant_operation = montant_operation;}
+
+    public int getFk_id_compte() {return fk_id_compte;}
+
+    public void setFk_id_compte(int fk_id_compte) {this.fk_id_compte = fk_id_compte;}
 }

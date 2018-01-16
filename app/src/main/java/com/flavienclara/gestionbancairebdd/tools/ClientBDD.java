@@ -20,8 +20,8 @@ public class ClientBDD {
     private static final String NOM_BDD = "client.db";
 
     private static final String TABLE_CLIENT="TABLE_CLIENT";
-    private static final int NUM_COL_ID  = 0;
-    private static final String COL_ID = "ID";
+    private static final int NUM_COL_ID_CLIENT  = 0;
+    private static final String COL_ID_CLIENT = "ID_CLIENT";
     private static final int NUM_COL_NOM  = 1;
     private static final String COL_NOM = "NOM";
     private static final int NUM_COL_PRENOM = 2;
@@ -66,7 +66,7 @@ public class ClientBDD {
         content.put(COL_PRENOM, client.getPrenom());
         content.put(COL_LOGIN, client.getLogin());
         content.put(COL_MDP, client.getMdp());
-        return bdd.update(TABLE_CLIENT, content, COL_ID + " = " + id, null);
+        return bdd.update(TABLE_CLIENT, content, COL_ID_CLIENT + " = " + id, null);
     }
 
     public int removeClient(String name) {
@@ -75,7 +75,7 @@ public class ClientBDD {
 
     public Client getClient(String name) {
         Cursor c = bdd.query(TABLE_CLIENT, new String[]
-                {COL_ID,COL_NOM, COL_PRENOM, COL_LOGIN, COL_MDP }, COL_NOM + " LIKE \"" + name + "\"", null, null, null, COL_NOM);
+                {COL_ID_CLIENT,COL_NOM, COL_PRENOM, COL_LOGIN, COL_MDP }, COL_NOM + " LIKE \"" + name + "\"", null, null, null, COL_NOM);
         return cursorToClient(c);
     }
 
@@ -85,7 +85,7 @@ public class ClientBDD {
             c.close(); return null;
         }
         Client client = new Client();
-        client.setId(c.getInt(NUM_COL_ID));
+        client.setId(c.getInt(NUM_COL_ID_CLIENT));
         client.setNom(c.getString(NUM_COL_NOM ));
         client.setPrenom(c.getString(NUM_COL_PRENOM ));
         client.setLogin(c.getString(NUM_COL_LOGIN ));
@@ -96,14 +96,14 @@ public class ClientBDD {
 
     public ArrayList<Client> getAllClients() {
         Cursor c = bdd.query(TABLE_CLIENT, new String[]
-                {COL_ID,COL_NOM,COL_PRENOM,COL_LOGIN,COL_MDP}, null, null, null, null, COL_NOM);
+                {COL_ID_CLIENT,COL_NOM,COL_PRENOM,COL_LOGIN,COL_MDP}, null, null, null, null, COL_NOM);
         if (c.getCount() == 0) {
             c.close(); return null;
         }
         ArrayList<Client> clientList = new ArrayList<Client> ();
         while (c.moveToNext()) {
             Client client = new Client();
-            client.setId(c.getInt(NUM_COL_ID));
+            client.setId(c.getInt(NUM_COL_ID_CLIENT));
             client.setNom(c.getString(NUM_COL_NOM ));
             client.setPrenom(c.getString(NUM_COL_PRENOM ));
             client.setLogin(c.getString(NUM_COL_LOGIN ));
