@@ -8,16 +8,16 @@ import java.util.ArrayList;
 
 public class Compte {
 
-    private int Id;
+    private int id;
     private int num;
-    private double montant;
+    private double montant_compte;
     private int fk_id_client;
     private ArrayList<Operation> lesOperations;
 
 
     public Compte(int num, double montant) {
         this.num = num;
-        this.montant = montant;
+        this.montant_compte = montant;
         this.lesOperations = new ArrayList<>();
     }
 
@@ -41,29 +41,25 @@ public class Compte {
         this.num = num;
     }
 
-    public double getMontant() {
-        return montant;
-    }
+    public double getMontant_compte() {return montant_compte;}
 
-    public void setMontant(double montant) {
-        this.montant = montant;
-    }
+    public void setMontant_compte(double montant_compte) {this.montant_compte = montant_compte;}
 
-    public int getId() {return Id;}
+    public int getId() {return id;}
 
-    public void setId(int Id) {this.Id = Id;}
+    public void setId(int Id) {this.id = Id;}
 
     public int getFk_id_client() {return fk_id_client;}
 
     public void setFk_id_client(int fk_id_client) {this.fk_id_client = fk_id_client;}
 
     public void operate(Operation operation){
-        montant += operation.getMontant();
+        montant_compte += operation.getMontant();
         lesOperations.add(operation);
     }
 
     public void desoperate(Operation operation){
-        montant -= operation.getMontant();
+        montant_compte -= operation.getMontant();
         lesOperations.remove(operation);
     }
 }
