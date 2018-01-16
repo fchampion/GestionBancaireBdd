@@ -57,6 +57,11 @@ public class LoginActivity extends AppCompatActivity {
             Client c2 = new Client("Laela", "Lola", "llaela", "ll39");
 
 
+            Compte cpte1 = new Compte(145, 1010.58);
+            Compte cpte2 = new Compte(146, 489.04);
+            Compte cpte3 = new Compte(147, 10.58);
+            Compte cpte4 = new Compte(148, 48.04);
+
 
             Operation op1 = new Operation("telephone", -614.00);
             Operation op2 = new Operation("bar", -17.80);
@@ -70,10 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 
             CompteBDD compteBdd = new CompteBDD(this);
             compteBdd.openForWrite();
-            Compte cpte1 = new Compte(145, 1010.58);
-            Compte cpte2 = new Compte(146, 489.04);
-            Compte cpte3 = new Compte(147, 10.58);
-            Compte cpte4 = new Compte(148, 48.04);
 
             /*cpte1.getLesOperations().add(op1);
             cpte1.getLesOperations().add(op3);
@@ -94,13 +95,14 @@ public class LoginActivity extends AppCompatActivity {
             compteBdd.insertCompte(cpte2);
             compteBdd.insertCompte(cpte3);
             compteBdd.insertCompte(cpte4);
+
             lesComptes = compteBdd.getAllComptes();
             compteBdd.close();
+
             //c1.getLesComptes().add(cpte1);
             //c1.getLesComptes().add(cpte2);
             //c2.getLesComptes().add(cpte3);
             //c2.getLesComptes().add(cpte4);
-
 
 
             clientBdd.insertClient(c1);
