@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CompteADO extends SQLiteOpenHelper {
 
     private static final String TABLE_COMPTE = "TABLE_COMPTE";
-
     private static final String COL_ID_COMPTE = "ID_COMPTE";
     private static final String COL_NUMERO = "NUMERO";
     private static final String COL_MONTANT_COMPTE = "MONTANT_COMPTE";

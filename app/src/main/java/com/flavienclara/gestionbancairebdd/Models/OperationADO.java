@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class OperationADO extends SQLiteOpenHelper {
 
     private static final String TABLE_OPERATION= "TABLE_OPERATION";
-
     private static final String COL_ID_OPERATION= "ID_COMPTE";
     private static final String COL_LIBELLE = "LIBELLE";
     private static final String COL_MONTANT_OPERATION= "MONTANT_COMPTE";

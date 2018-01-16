@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import com.flavienclara.gestionbancairebdd.Models.BanqueADO;
 import com.flavienclara.gestionbancairebdd.classes.Client;
-import com.flavienclara.gestionbancairebdd.Models.ClientADO;
 
 /**
  * Created by flavien.champion on 12/01/2018.
@@ -33,11 +33,11 @@ public class ClientBDD {
 
 
     private SQLiteDatabase bdd;
-    private ClientADO Clients;
+    private BanqueADO Clients;
 
 
     public ClientBDD(Context context) {
-        Clients = new ClientADO(context, NOM_BDD, null, VERSION);
+        Clients = new BanqueADO(context, NOM_BDD, null, VERSION);
     }
 
     public void openForWrite() {

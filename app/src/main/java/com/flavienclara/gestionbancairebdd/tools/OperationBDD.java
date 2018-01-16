@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.flavienclara.gestionbancairebdd.Models.OperationADO;
+import com.flavienclara.gestionbancairebdd.Models.BanqueADO;
 import com.flavienclara.gestionbancairebdd.classes.Client;
 import com.flavienclara.gestionbancairebdd.classes.Operation;
 
@@ -28,10 +28,10 @@ public class OperationBDD {
     private static final String COL_FK_ID_COMPTE = "FK_ID_COMPTE";
     private static final int NUM_COL_FK_ID_COMPTE = 3;
     private SQLiteDatabase bdd;
-    private OperationADO operations;
+    private BanqueADO operations;
 
     public OperationBDD(Context context) {
-        operations = new OperationADO(context, NOM_BDD, null, VERSION);
+        operations = new BanqueADO(context, NOM_BDD, null, VERSION);
     }
 
     //connexion pour ecrire
